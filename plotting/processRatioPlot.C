@@ -28,8 +28,7 @@ void processRatioPlot()
          gStyle->SetLegendTextSize(0.02);
          legend->SetBorderSize(0);
 
-         string fileName = "../output/histograms.root";
-         //string fileName = "../mc_histograms.root";
+         string fileName = "../output/FFHistograms.root";
          string BfileName = "../dataset/RawData.root";
          TFile *f = TFile::Open(fileName.c_str());
          TFile *fB = TFile::Open(BfileName.c_str());
@@ -39,6 +38,8 @@ void processRatioPlot()
          TH1D *h = (TH1D *)f->Get(hName.c_str());
          h->SetMarkerStyle(20);
          h->SetMarkerColor(kBlack);
+         h->GetXaxis()->SetTitle("Hadronic Tau p_{T} [GeV]");
+         h->GetYaxis()->SetTitle("Events / 10 GeV");
          string myleg = "my " + pro.first;
          legend->AddEntry(h, myleg.c_str(), "P");
          cout << "my hist:" << h->GetEntries() << endl;

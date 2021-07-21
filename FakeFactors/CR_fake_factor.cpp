@@ -21,23 +21,9 @@ using namespace std;
 
 void CR_fake_factor()
 {
-    vector<string> process = {
-        "Top",
-        "other_bkg",
-        "Ztt",
-        "signal_SM",
-    };
-
-    vector<int> colors = {
-        kMagenta,
-        kOrange + 1,
-        kAzure + 1,
-        kRed,
-    };
-
     map<string, vector<double>> variable = {
-        {"tau_0_p4.Pt", {20, 20, 220}},
-        {"tau_1_p4.Pt", {20, 20, 220}},
+        {"tau_0_p4.Pt", {48, 20, 500}},
+        {"tau_1_p4.Pt", {28, 20, 300}},
         {"tau_1_p4.Eta", {50, -2.5, 2.5}},
         {"dphi_mettau", {35, 0, 3.5}},
         //{"ditau_dr", {25, 0, 2.5}},
@@ -60,7 +46,7 @@ void CR_fake_factor()
     gStyle->SetErrorX(0.5);
 
     cout << "" << endl;
-    TFile *f = TFile::Open("../output/histograms.root", "read");
+    TFile *f = TFile::Open("../output/FFHistograms.root", "read");
     TH1D *FF[regions.size()];
     int n = 0;
     for (auto reg : regions)
@@ -93,12 +79,15 @@ void CR_fake_factor()
     {
         string hFF = "FF_" + regions.at(i) + "_presel_mu_1p0n_18";
         FF[i]->SetName(hFF.c_str());
+        FF[i]->GetXaxis()->SetTitle("Hadronic Tau p_{T} [GeV]");
+        FF[i]->GetYaxis()->SetTitle("FF values");
         FF[i]->Write();
     }
     TCanvas *c[regions.size()];
     for (int i = 0; i < regions.size(); ++i)
     {
         c[i] = new TCanvas("", "", 900, 700);
+        c[i]->SetLogx();
         FF[i]->Draw("E");
         //legend->Draw();
         string savePath = "../plots/FakeFactors/";

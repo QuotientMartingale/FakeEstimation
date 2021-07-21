@@ -198,6 +198,8 @@ void final_weight()
         file >> xsec[i][0] >> xsec[i][1];
     }
     file.close();
+    
+    double uc = 1000.0; // unit conversion factor from pb to fb. This is due to eff_xsec is in pb, but luminosity is in fb^-1.
 
     // setting and adding new branch into trees
     for (auto &pro : process)
@@ -290,17 +292,17 @@ void final_weight()
                         if (std::find(ggH.begin(), ggH.end(), id) != ggH.end())
                         {
                             cout << "this is ggH sample." << endl; 
-                            final_weight = year.at(y) * Xsec * theory_weights_nominal * SF / signal_sum_of_weights_ggH;
+                            final_weight = year.at(y) * Xsec * theory_weights_nominal * SF * uc / signal_sum_of_weights_ggH;
                         }
                         else
                         {
                             cout << "this is other signal sample." << endl;
-                            final_weight = year.at(y) * Xsec * theory_weights_nominal * SF / signal_sum_of_weights * ;
+                            final_weight = year.at(y) * Xsec * theory_weights_nominal * SF * uc / signal_sum_of_weights * ;
                         }
                     }
                     else
                     {
-                        final_weight = year.at(y) * Xsec * weight_mc * SF / mc_sum_of_weights;
+                        final_weight = year.at(y) * Xsec * weight_mc * SF * uc / mc_sum_of_weights;
                     }
                     branch_dsid->Fill();
                     branch_final_weight->Fill();

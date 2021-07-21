@@ -16,9 +16,9 @@ void rQCD()
 
     map<string, vector<double>> variable = {
         {"tau_0_p4.Pt", {20, 20, 220}},
-        {"tau_1_p4.Pt", {20, 20, 220}},
-        {"tau_1_p4.Eta", {50, -2.5, 2.5}},
-        {"dphi_mettau", {35, 0, 3.5}},
+        //{"tau_1_p4.Pt", {20, 20, 220}},
+        //{"tau_1_p4.Eta", {50, -2.5, 2.5}},
+        //{"dphi_mettau", {35, 0, 3.5}},
         //{"ditau_dr", {25, 0, 2.5}},
         //{"mmc_mlm_m", {20, 0, 200}},
         //{"ditau_higgspt", {30, 90, 390}},
@@ -37,4 +37,9 @@ void rQCD()
 
     gROOT->SetStyle("ATLAS");
     gStyle->SetErrorX(0.5);
+    
+    TFile *fIso = TFile::Open("Isofactors.root", "read");
+
+    TFile *f = TFile::Open("../output/RQCDHistograms.root", "recreate");
+
 }
