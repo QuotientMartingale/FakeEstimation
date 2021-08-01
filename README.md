@@ -1,6 +1,6 @@
 Fake background, due to the complexity of the tau analysis, is one of the dominant backgrounds in the lephad final state. Therefore, fake estimation is of great importance and the most complicated part in Htautau CP analysis. This repository offers a simple workflow, independent from the BOOM and HAPPy frameworks, to understand how the calculation works and how the final fake factor is obtained, and at the same time give a bunch of plots to compare with the results of BOOM's.
 
-### 1. Pre-process
+### 1. Pre-processing
 - check the input file on cern eos: /eos/atlas/atlascerngroupdisk/phys-higgs/HSG4/SM_Htautau_R21/V03<br>
     data: /data/hadhad,lephad,leplep<br>
     mc: /mc/hadhad,lephad,leplep/mc16a, mc16d, mc16e/nom<br>
@@ -13,13 +13,13 @@ Fake background, due to the complexity of the tau analysis, is one of the domina
 - run final_weight.cpp. This will add a new branch for each dsid tree to hold final weights.
 - run fill_hist.cpp or fill_hist_df,cpp, fetching all the variables you need and filling them into histograms.
 
-### 3. caculating fake factors, rQCD, and isolation factors.
+### 3. caculating fake factors, rQCD, and isolation factor.
 - run CR_fake_factor.cpp, rQCD.cpp, isofac.cpp to obtain all three factors. Note that you need to run isofac.cpp before running rQCD.cpp. Finishing this you should run the corrsponding ratio plot macros and the modelling macros to check your results.
-- run fake_factors.cpp to obtain the final fake factors in SR. Again, run the corresponding plotting macros in the directory plotting to check your results.
+- run fake_factors.cpp to obtain the final fake factors. Again, run the corresponding plotting macros in the directory plotting to check your results.
 
 ### 4. plotting
 - to check whether the data and mc after selections agree with those of BOOM's result, run processRatioPlot.C to get a comparing plot for each process and region.
 - to check whether the fake factors and isolation factor agree with those of BOOM's, run RatioPlot.C.
-- run FakeTemplatePlot.C to get fake templates.
-- run FFPlot.cpp, rQCDPlot.cpp, IsoFacPlot.cpp to get correspoding plots.
-- run data_mc_fit.cpp to get the final modelling plots.   
+- run FakeTemplate.C to get fake templates.
+- run RatioPlot.C to get the correspoding plots for FF, rQCD, IsoFac.
+- run Fake_Modeling.cpp to get the final modelling plots.   

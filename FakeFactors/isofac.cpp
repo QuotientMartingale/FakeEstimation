@@ -30,7 +30,7 @@ void isofac()
     string hIso = "Iso_Factor_presel_mu_1p0n_18";
     Iso->SetName(hIso.c_str());
     Iso->GetXaxis()->SetTitle("Leptonic Tau p_{T} [GeV]");
-    Iso->GetYaxis()->SetTitle("FF values");
+    Iso->GetYaxis()->SetTitle("Iso Factor values");
     Iso->Write();
     TCanvas *c;
     c = new TCanvas("", "", 900, 700);

@@ -1,0 +1,60 @@
+
+
+raw_events:
+cut                        sel__mu_1p0n__single-mu__preselection__SR__18    sum
+-----------------------  -----------------------------------------------  -----
+mc16e_18                                                            7308   7308
+npv                                                                 7308   7308
+event_is_not_bad_batman                                             7308   7308
+truth_passedVBFFilter                                               7308   7308
+LeadTau_NotAJet                                                     6706   6706
+count_mutau                                                         3432   3432
+one_medium_tau                                                      2569   2569
+tau_pt_cut                                                          2569   2569
+tau_charge                                                          2569   2569
+tau_eta                                                             2545   2545
+tau_medium_id                                                       2545   2545
+mu_pt_lh                                                            2545   2545
+sublead_lepton_id                                                   2545   2545
+sublead_lepton_iso                                                  2535   2535
+BVeto                                                               2189   2189
+l_1p0n                                                               402    402
+trig_mh_slt_16                                                       402    402
+OS                                                                   402    402
+transverse_mass                                                      385    385
+lead_jet                                                             384    384
+met_cut                                                              384    384
+x0x1_low                                                             384    384
+x0x1_lh                                                              384    384
+ditau_dr_lh                                                          384    384
+mmc_status                                                           384    384
+
+
+weighted:
+cut                        sel__mu_1p0n__single-mu__preselection__SR__18       sum
+-----------------------  -----------------------------------------------  --------
+mc16e_18                                                        151.044   151.044
+npv                                                             151.044   151.044
+event_is_not_bad_batman                                         151.044   151.044
+truth_passedVBFFilter                                           151.044   151.044
+LeadTau_NotAJet                                                 138.789   138.789
+count_mutau                                                     138.789   138.789
+one_medium_tau                                                  103.753   103.753
+tau_pt_cut                                                      103.753   103.753
+tau_charge                                                      103.753   103.753
+tau_eta                                                         102.75    102.75
+tau_medium_id                                                   102.75    102.75
+mu_pt_lh                                                        102.75    102.75
+sublead_lepton_id                                               102.75    102.75
+sublead_lepton_iso                                              102.416   102.416
+BVeto                                                            87.0232   87.0232
+l_1p0n                                                           16.3534   16.3534
+trig_mh_slt_16                                                   16.3534   16.3534
+OS                                                               16.3534   16.3534
+transverse_mass                                                  15.6624   15.6624
+lead_jet                                                         15.6091   15.6091
+met_cut                                                          15.6091   15.6091
+x0x1_low                                                         15.6091   15.6091
+x0x1_lh                                                          15.6091   15.6091
+ditau_dr_lh                                                      15.6091   15.6091
+mmc_status                                                       15.6091   15.6091

@@ -1,9 +1,9 @@
 void RatioPlot()
 {
     vector<string> project = {
-        "FF",
-        //"Iso",
-        //"RQCD",
+        //"FF",
+        //"ISO",
+        "rQCD",
     };
     for (auto &p : project)
     {
@@ -60,6 +60,7 @@ void RatioPlot()
                 c1->SaveAs(plotName.c_str());
             }
         }
+    
         if (p == "Iso")
         {
 
@@ -106,9 +107,51 @@ void RatioPlot()
             string plotName = "../plots/RatioPlots/Iso_ratio.pdf";
             c1->SaveAs(plotName.c_str());
         }
-        // if (p == "RQCD")
-        // {
 
-        // }
+        if (p == "rQCD")
+        {
+            gStyle->SetOptStat(0);
+
+            auto c1 = new TCanvas("c1", "");
+            c1->SetLogx();
+            TLegend *legend = new TLegend(0.7, 0.7, 0.8, 0.9);
+            gStyle->SetLegendTextSize(0.02);
+            legend->SetBorderSize(0);
+
+            string fileName = "../output/rQCD.root";
+            //string fileName = "../mc_histograms.root";
+            string BfileName = "../dataset/RQCDs_lephad_1p0n.root";
+            TFile *f = TFile::Open(fileName.c_str());
+            TFile *fB = TFile::Open(BfileName.c_str());
+
+            //string hName = "hist_" + pro.first + "_" + reg.first;
+            string hName = "rQCD_presel_mu_1p0n_18";
+            TH1D *h = (TH1D *)f->Get(hName.c_str());
+            h->SetMarkerStyle(20);
+            h->SetMarkerColor(kBlack);
+            h->GetXaxis()->SetTitle("Hadronic Tau p_{T} [GeV]");
+            h->GetYaxis()->SetTitle("rQCD values");
+            string myleg = "my rQCD";
+            legend->AddEntry(h, myleg.c_str(), "P");
+            cout << "my hist:" << h->GetEntries() << endl;
+            string BhName = "RQCD_Presel_All_Comb_SLT_1p0n";
+            TH1D *hB = (TH1D *)fB->Get(BhName.c_str());
+            hB->SetLineColor(kAzure + 1);
+            string boomsleg = "BOOM's rQCD";
+            legend->AddEntry(hB, boomsleg.c_str(), "L");
+            cout << "boom hist:" << hB->GetEntries() << endl;
+
+            auto rp = new TRatioPlot(h, hB);
+            rp->SetH1DrawOpt("P");
+            rp->SetH2DrawOpt("hist");
+            //rp->GetLowerRefGraph()->SetMaximum(2);
+            //rp->GetLowerRefGraph()->SetMinimum(-2);
+            c1->SetTicks(0, 1);
+            rp->Draw();
+            //rp->GetLowYaxis()->SetNdivisions(505);
+            legend->Draw();
+            string plotName = "../plots/RatioPlots/rQCD_ratio.pdf";
+            c1->SaveAs(plotName.c_str());
+        }
     }
 }

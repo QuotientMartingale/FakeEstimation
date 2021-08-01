@@ -56,7 +56,7 @@ void FakeTemplate()
             hRebin[i]->SetFillColor(colors[i]);
             hRebin[i]->SetFillStyle(1001); //实心颜色填充
             hRebin[i]->SetLineStyle(1);
-            h[i]->SetLineWidth(0);
+            hRebin[i]->SetLineWidth(0);
             hs->Add(hRebin[i]);
             legend->AddEntry(hRebin[i], (process.at(i)).c_str(), "F");
         }

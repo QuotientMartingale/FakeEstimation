@@ -101,7 +101,7 @@ void cut_mc_Trees()
     Int_t n_taus_rnn_loose;
     Int_t n_taus_rnn_medium;
     Int_t n_taus_rnn_tight;
-    Int_t n_taus_rnn_veryloose; 
+    Int_t n_taus_rnn_veryloose;
     UInt_t NOMINAL_pileup_random_run_number;
     UInt_t truth_passedVBFFilter;
     int n_bjets_DL1r_FixedCutBEff_85;
@@ -165,8 +165,9 @@ void cut_mc_Trees()
     vector<int> ttH_afii_ME = {346443, 346444, 346445};
     vector<int> ttH_afii_PS = {346346, 346347, 346348};
 
-    vector<int> all = {344772, 344774, 344775, 344776, 344778, 344779, 344780, 344781, 344782, 364137, 364138, 364139, 364140, 364141, 364210, 364211, 364212, 364213, 364214, 364215, 308094, 410470, 410471, 410644, 410645, 410646, 410647, 410658, 410659, 410155, 410218, 410219, 410220, 412043, 304014, 363355, 363356, 363357, 363358, 363359, 363489, 363494, 364250, 364253, 364254, 364255, 364288, 364289, 364290, 364156, 364157, 364158, 364159, 364160, 364161, 364162, 364163, 364164, 364165, 364166, 364167, 364168, 364169, 364170, 364171, 364172, 364173, 364174, 364175, 364176, 364177, 364178, 364179, 364180, 364181, 364182, 364183, 364184, 364185, 364186, 364187, 364188, 364189, 364190, 364191, 364192, 364193, 364194, 364195, 364196, 364197, 308096, 308097, 308098, 345099, 345100, 345101, 345102, 364100, 364101, 364102, 364103, 364104, 364105, 364106, 364107, 364108, 364109, 364110, 364111, 364112, 364113, 364114, 364115, 364116, 364117, 364118, 364119, 364120, 364121, 364122, 364123, 364124, 364125, 364126, 364127, 364198, 364199, 364200, 364201, 364202, 364203, 364204, 364205, 364206, 364207, 364208, 364209, 308092, 308093, 345324, 345948, 345121, 345122, 345123, 346191, 346192, 346193, 345211, 345212, 345217, 346343, 346344, 346345, 346527, 346528, 346562, 346565, 346566, 346571, 346531, 346532, 346564, 346569, 346570, 346573, 346909, 346912, 346915, 346919, 346923, 346927, 600565, 600566, 600567, 600568, 600569, 600570, 600571, 600572, 600573, 600574, 600575, 
-    //346343, 346344, 346345, 346443, 346444, 346445, 346346, 346347, 346348
+    vector<int> all = {
+        344772, 344774, 344775, 344776, 344778, 344779, 344780, 344781, 344782, 364137, 364138, 364139, 364140, 364141, 364210, 364211, 364212, 364213, 364214, 364215, 308094, 410470, 410471, 410644, 410645, 410646, 410647, 410658, 410659, 410155, 410218, 410219, 410220, 412043, 304014, 363355, 363356, 363357, 363358, 363359, 363489, 363494, 364250, 364253, 364254, 364255, 364288, 364289, 364290, 364156, 364157, 364158, 364159, 364160, 364161, 364162, 364163, 364164, 364165, 364166, 364167, 364168, 364169, 364170, 364171, 364172, 364173, 364174, 364175, 364176, 364177, 364178, 364179, 364180, 364181, 364182, 364183, 364184, 364185, 364186, 364187, 364188, 364189, 364190, 364191, 364192, 364193, 364194, 364195, 364196, 364197, 308096, 308097, 308098, 345099, 345100, 345101, 345102, 364100, 364101, 364102, 364103, 364104, 364105, 364106, 364107, 364108, 364109, 364110, 364111, 364112, 364113, 364114, 364115, 364116, 364117, 364118, 364119, 364120, 364121, 364122, 364123, 364124, 364125, 364126, 364127, 364198, 364199, 364200, 364201, 364202, 364203, 364204, 364205, 364206, 364207, 364208, 364209, 308092, 308093, 345324, 345948, 345121, 345122, 345123, 346191, 346192, 346193, 345211, 345212, 345217, 346343, 346344, 346345, 346527, 346528, 346562, 346565, 346566, 346571, 346531, 346532, 346564, 346569, 346570, 346573, 346909, 346912, 346915, 346919, 346923, 346927, 600565, 600566, 600567, 600568, 600569, 600570, 600571, 600572, 600573, 600574, 600575,
+        //346343, 346344, 346345, 346443, 346444, 346445, 346346, 346347, 346348
     };
 
     map<string, vector<int>> process = {
@@ -230,7 +231,7 @@ void cut_mc_Trees()
         // "top",
         // "top_anti_tau",
         // // lephad WCR
-        //"W_lh",
+        "W_lh",
         //"W_lh_same_sign",
         //"W_lh_anti_tau",
         //"W_lh_same_sign_anti_tau",
@@ -239,7 +240,7 @@ void cut_mc_Trees()
         // "W_lh_anti_tau_lnm_hhfake",
         // // lephad qcd CR
         //"qcd_test",
-        //"qcd_lh",
+        "qcd_lh",
         //"qcd_lh_same_sign",
         //"qcd_lh_anti_tau",
         //"qcd_lh_same_sign_anti_tau",
@@ -328,7 +329,7 @@ void cut_mc_Trees()
 
     // if you duplicate input samples in the input_samples directory, use the following path, otherwise use your own path.
     string mcPath = "../preprocessed_samples/combined_mc_samples";
-    string mcPrefix =  "group.phys-higgs.Htt_lh_V03.mc16_13TeV.";
+    string mcPrefix = "group.phys-higgs.Htt_lh_V03.mc16_13TeV.";
     vector<string> proNames;
     int n = 0;
     for (auto &pro : process)
@@ -341,17 +342,18 @@ void cut_mc_Trees()
         }
         n = n + 1;
     }
-       
+
     cout << "Chain adding success!" << endl;
 
     // cuts
     //categories
     string cut_presel = "(n_pvx >= 1) && (event_is_bad_batman == 0) && (truth_passedVBFFilter == 0) && (tau_0_p4->Pt() > 30) && (abs(tau_0_q) == 1) && (abs(tau_0_p4->Eta()) < 2.4) && (tau_1_id_medium == 1) && (n_bjets_DL1r_FixedCutBEff_85 == 0) && (jet_0_p4->Pt() >= 40) && (met_p4->Pt() > 20) && (ditau_coll_approx_x0 > 0.1 && ditau_coll_approx_x1 > 0.1) && (ditau_coll_approx_x0 < 1.4 && ditau_coll_approx_x1 < 1.2) && (ditau_dr < 2.5 && fabs(ditau_deta) < 1.5) && (ditau_mmc_mlm_fit_status == 1)";
     string cut_vbf = "(jet_1_p4->Pt() > 30 && dijet_p4->M() > 400 && fabs(jet_0_p4->Eta() - jet_1_p4->Eta()) > 3 && jet_0_p4->Eta() * jet_1_p4->Eta() < 0 && is_dijet_centrality == 1)";
-    string cut_boost = "(!((jet_1_p4->Pt() > 30 && dijet_p4->M() > 400 && fabs(jet_0_p4->Eta() - jet_1_p4->Eta()) > 3 && jet_0_p4->Eta() * jet_1_p4->Eta() < 0 && is_dijet_centrality == 1)) && (ditau_higgspt > 100))"; 
+    string cut_boost = "(!((jet_1_p4->Pt() > 30 && dijet_p4->M() > 400 && fabs(jet_0_p4->Eta() - jet_1_p4->Eta()) > 3 && jet_0_p4->Eta() * jet_1_p4->Eta() < 0 && is_dijet_centrality == 1)) && (ditau_higgspt > 100))";
+    string cut_VH = "dijet_p4->M() > 60 && dijet_p4->M() < 120";
     //ZCR
     string cut_ZSR = "(ditau_mmc_mlm_m > 110 && ditau_mmc_mlm_m < 150)";
-    string cut_ZCR = "(ditau_mmc_mlm_m > 60 && ditau_mmc_mlm_m < 110)"; 
+    string cut_ZCR = "(ditau_mmc_mlm_m > 60 && ditau_mmc_mlm_m < 110)";
     // years
     string cut_year_15 = "(NOMINAL_pileup_random_run_number > 0 && NOMINAL_pileup_random_run_number <= 284484)";
     string cut_year_16 = "(NOMINAL_pileup_random_run_number > 284484 && NOMINAL_pileup_random_run_number <= 311563)";
@@ -398,7 +400,7 @@ void cut_mc_Trees()
     cout << "\n";
     cout << "---------- mc Tree selection program ----------" << endl;
     cout << "\n";
-    
+
     for (int p = 0; p < process.size(); ++p) //此处并非循环process, 实际是循环chain
     {
         cout << "----- Processing " << proNames[p] << " -----" << endl;
@@ -443,7 +445,7 @@ void cut_mc_Trees()
         string t3Name = proNames.at(p) + "_presel_mu_1p0n_W_lh_18";
         t3->SetName(t3Name.c_str());
         cout << proNames.at(p) << " chain W_lh copied." << endl;
-        // W-lh_anti_tau
+        // W_lh_anti_tau
         string t4_cut;
         t4_cut = Form("%s && %s && %s && %s && %s && %s && %s && %s && %s && %s", cut_1p0n.c_str(), cut_anti_tau.c_str(), cut_os.c_str(), cut_year_18.c_str(), cut_single_mu.c_str(), cut_trigger_mu_161718.c_str(), cut_tau_1_pt_mu_161718.c_str(), cut_WCR.c_str(), cut_mu_QCDSR.c_str(), cut_true_tau.c_str());
         TTree *t4 = t_presel->CopyTree(t4_cut.c_str());
@@ -464,7 +466,7 @@ void cut_mc_Trees()
         string t6Name = proNames.at(p) + "_presel_mu_1p0n_qcd_lh_anti_tau_18";
         t6->SetName(t6Name.c_str());
         cout << proNames.at(p) << " chain qcd_lh_anti_tau copied." << endl;
-        // qcd_lh_anti_tau_truth_lep 
+        // qcd_lh_anti_tau_truth_lep
         string t7_cut;
         t7_cut = Form("%s && %s && %s && %s && %s && %s && %s && %s && %s && %s && %s", cut_1p0n.c_str(), cut_anti_tau.c_str(), cut_os.c_str(), cut_year_18.c_str(), cut_single_mu.c_str(), cut_trigger_mu_161718.c_str(), cut_tau_1_pt_mu_161718.c_str(), cut_WSR.c_str(), cut_mu_QCDCR.c_str(), cut_true_mu.c_str(), cut_true_tau.c_str());
         TTree *t7 = t_presel->CopyTree(t7_cut.c_str());
@@ -493,7 +495,7 @@ void cut_mc_Trees()
         cout << "\n";
 
         string fileName = "../preprocessed_samples/mc_Trees.root";
-        TFile *f = TFile::Open(fileName.c_str(),"recreate");
+        TFile *f = TFile::Open(fileName.c_str(), "recreate");
         t1->Write();
         t2->Write();
         t3->Write();
